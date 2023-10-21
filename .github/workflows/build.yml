@@ -1,0 +1,23 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+
+      - name: Build application
+        run: make all
+
+      - name: Test
+        run: make test
+
+      - name: Clean up
+        run: make clean
